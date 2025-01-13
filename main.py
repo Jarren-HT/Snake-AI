@@ -183,15 +183,7 @@ def game_loop():
             start_time = time.time()  # Start timing this frame
 
             for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()
-                    plt.ioff()
-                    plt.savefig("training_performance.png")
-                    with open("frame_time_log.txt", "w") as f:
-                        for t in frame_times:
-                            f.write(f"{t:.4f}\n")
-                    return
-                elif event.type == pygame.KEYDOWN:
+                if event.type == pygame.KEYDOWN:
                     global SNAKE_SPEED
                     if event.key == pygame.K_PLUS or event.key == pygame.K_EQUALS:
                         SNAKE_SPEED = min(SNAKE_SPEED + 50, 15000)
@@ -274,4 +266,3 @@ def game_loop():
 window = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 pygame.display.set_caption("Snake Game with Q-Learning")
 game_loop()
-plt.savefig('Personal/SnakeAi/DataPictures/data.png')
